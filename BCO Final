@@ -1,0 +1,690 @@
+{
+    "object_id": "",
+    "spec_version": "https://w3id.org/ieee/ieee-2791-schema/2791object.json",
+    "etag": "",
+    "provenance_domain": {
+        "name": "Genetic-based patient stratification in Alzheimer’s disease",
+        "version": "1.0",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "created": "2024-12-12T22:15:12",
+        "modified": "2024-12-12T22:40:43",
+        "derived_from": "",
+        "contributors": [
+            {
+                "name": "Laura Hernández-Lorenzo",
+                "affiliation": " Universidad de Sevilla",
+                "email": "laurahl@ucm.es",
+                "contribution": [
+                    "authoredBy"
+                ],
+                "orcid": ""
+            },
+            {
+                "name": "Fernando García-Gutiérrez",
+                "affiliation": "Complutense University of Madrid",
+                "email": "ga.gu.fernando@gmail.com",
+                "contribution": [
+                    "authoredBy"
+                ],
+                "orcid": ""
+            },
+            {
+                "name": "Ana Solbas-Casajús",
+                "affiliation": " Universidad Politécnica de Madrid",
+                "email": "ana.solbas12@gmail.com",
+                "contribution": [
+                    "authoredBy"
+                ],
+                "orcid": ""
+            },
+            {
+                "name": "Jordi A. Matías-Guiu",
+                "affiliation": "Hospital Clinico San Carlos",
+                "email": "jordimatiasguiu@hotmail.com",
+                "contribution": [
+                    "authoredBy"
+                ],
+                "orcid": ""
+            },
+            {
+                "name": "Jose L. Ayala",
+                "affiliation": "Complutense University",
+                "email": "",
+                "contribution": [
+                    "authoredBy"
+                ],
+                "orcid": ""
+            },
+            {
+                "name": "Allison Guduza",
+                "affiliation": "George Washington University",
+                "email": "tanyaradzwa.guduza@gwu.edu",
+                "contribution": [
+                    "createdBy"
+                ],
+                "orcid": ""
+            }
+        ],
+        "review": []
+    },
+    "usability_domain": [
+        "Genetic-based stratification in Alzheimer’s disease (AD) refers to the process of categorizing patients into subgroups based on their genetic profiles (https://doi.org/10.1038/s41598-024-60707-1),  This approach recognizes that AD is not a uniform disease but a heterogeneous condition influences by multiple genetic and environmental factors. By analyzing genetic variations, such as single nucleotide polymorphisms (SNPs) and mutations in genes like APOE (Apolipoprotein E), APP (Amyloid precursor protein) PSEN1 and PSEN2 (Presenilin 1 and 2), researchers can identify subgroups of patients who may respond differently to treatments or exhibit distinct disease trajectories (https://doi.org/10.1016/j.neurobiolaging.2010.03.025). This pipeline describes a multi-step approach for stratifying Alzheimer’s disease (AD) patients using genetic, neuroimaging and neurocognitive data. It combines advanced computational methods to categorize patients into distinct groups based on their genetic interactions and clinical characteristics. \\n This study filtered and processed genetic data to identify variants associated with Alzheimer’s Disease (AD) and other neurodegenerative disorders. The steps included selection of Variant-Disease Association (VDAs) and were retrieved from the DisGeNET database, covering 10 neurodegenerative conditions including AD, Parkinson’s Disease, vascular dementia and Lewy body dementia. The total number of unique VDAs were 2,924 (https://doi.org/10.1038/s41598-024-60707-1). The second step was querying the ADNI WGS Cohort. The ADNI (Alzheimer’s Disease Neuroimaging Initiative) database was used, consisting of Whole-Genome Sequencing (WGS) data from 808 subjects. Of the selected VDAs, 2,475 variants in 1,071 genes were identified within the cohort. To reduce bias from genetic stratification due to population differences, only subjects of Caucasian ancestry were included and were recorded in ADNI’s demographic data (https://doi.org/10.1038/s41598-024-60707-1). This preprocessing step ensured that the data used for clustering analysis was relevant, high quality and less affected by population-specific variations. The focus on neurodegenerative disease variants provided a strong foundation for exploring genetic interactions in AD. In the Description Domain, the file IOs were identified by their uuids. Local computer on which this pipeline was executed is indicated by relative file paths.This pipeline was developed using the work of Hernández-Lorenzo. et al. https://doi.org/10.1038/s41598-024-60707-1.\\n"
+    ],
+    "description_domain": {
+        "keywords": [
+            "\"alzheimer's disease\", \"gene variants\", \"genetic-based stratification\", \"genetic characteristics\", \"clusters\", \"edge scores\", \"PPI\", \"WGS\", \"neurocognitive\", \"neuroimaging\" "
+        ],
+        "xref": [],
+        "platform": [
+            "\"ADNI\", \"DisGeNET\""
+        ],
+        "pipeline_steps": [
+            {
+                "step_number": 1,
+                "name": "Selection of Genetic Variants",
+                "description": "Genetic variants associated with Alzheimer’s  disease and other neurodegenerative diseases were selected using the DisGeNET database, which includes Variant-Disease Associations (VDAs)",
+                "version": "1.0.0",
+                "prerequisite": [
+                    {
+                        "name": "00_make_datasets.ipynb",
+                        "uri": {
+                            "filename": "",
+                            "access_time": "2024-12-12T19:18:00.000Z",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/00_make_datasets.ipynb",
+                            "sha1_checksum": ""
+                        }
+                    },
+                    {
+                        "name": "data/VDAs",
+                        "uri": {
+                            "filename": "",
+                            "access_time": "",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/data/VDAs/VDAs.tsv",
+                            "sha1_checksum": ""
+                        }
+                    }
+                ],
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:22:00.000Z",
+                        "uri": "urn:uuid:c7e0b450-f06c-4960-bd58-6ba3b9d5185f",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:22:00.000Z",
+                        "uri": "urn:uuid:09a71c63-e596-4f07-bca8-2607ffcfef1f",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 2,
+                "name": "Data Filtering and Cohort Selection",
+                "description": "The selected variants were queried in the ADNI WGS cohort, which consists of 808 subjects. To avoid population stratification biases, only subjects with Caucasian ancestry were included narrowing the cohort to 728 subjects.",
+                "version": "1.0.0",
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:24:00.000Z",
+                        "uri": "urn:uuid:ed8e6d63-baef-4822-ac20-999a0cf8e204",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T22:22:00.000Z",
+                        "uri": "urn:uuid:d2176ce5-4381-47ab-aa1f-d1a83aa77e49",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 3,
+                "name": "Generation of Protein-Protein Interaction (PPI) Network",
+                "description": "he genes linked to selected variants are mapped to a brain-specific PPI network from the Stanford Biomedical Network Dataset. Only ge nes with exotic variants were included, resulting in a reduced subnetwork consisting of 66 nodes and 102 edges. ",
+                "version": "1.0.0",
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:26:00.000Z",
+                        "uri": "urn:uuid:40768546-814c-4957-b4af-046e88894b9d",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T22:22:00.000Z",
+                        "uri": "urn:uuid:91122284-2366-47f1-8baf-4ca7b96b617e",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 4,
+                "name": "Patient -Specific Edge Scores",
+                "description": "For each subject, edge scores were calculated based on the genetic variants present in each gene interaction. These scores indicate the degree to which the interactions in the brain network are affected by the mutations in the subject",
+                "version": "",
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:27:00.000Z",
+                        "uri": "urn:uuid:c3e0b3f2-54f6-407e-ac45-7b57921e72df",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:29:00.000Z",
+                        "uri": "urn:uuid:7f1a59b1-270a-42c2-847d-71e3dcf65623",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 5,
+                "name": "Clustering of Patients",
+                "description": "A Similar Network Fusion (SNF) method was applied to the matrix of edge scores to cluster the patients based on their genetic data.",
+                "version": "1.0.0",
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:30:00.000Z",
+                        "uri": "urn:uuid:d0306bc3-b971-4110-b2c0-5aa47271700a",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:32:00.000Z",
+                        "uri": "urn:uuid:2ad9cf0c-1a53-4d9a-85f2-24a9e59d5115",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "prerequisite": [
+                    {
+                        "name": "01_clustering.ipynb",
+                        "uri": {
+                            "filename": "01_clustering.ipynb",
+                            "access_time": "2024-12-12T19:32:00.000Z",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/01_clustering.ipynb",
+                            "sha1_checksum": ""
+                        }
+                    }
+                ]
+            },
+            {
+                "step_number": 6,
+                "name": "  Genetic Profiling of Clusters ",
+                "description": "The clusters were further analyzed to identify significant genetic differences. Random Forest classifiers were used to determine the most important genetic variants that are distinguish each cluster.",
+                "version": "1.0.0",
+                "prerequisite": [
+                    {
+                        "name": "03_clusters_description.ipynb",
+                        "uri": {
+                            "filename": "",
+                            "access_time": "2024-12-12T19:32:00.000Z",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/03_clusters_description.ipynb",
+                            "sha1_checksum": ""
+                        }
+                    }
+                ],
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:33:00.000Z",
+                        "uri": "urn:uuid:5b3b071b-8d83-4b14-97a3-61ae45771516",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T22:23:00.000Z",
+                        "uri": "urn:uuid:81c0a503-8b19-4e57-b97f-f9189ea4059f",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 7,
+                "name": "Sociodemographic and Biomarker Analysis",
+                "description": "Each cluster was profiled based on sociodemographic data (for example age, gender, APOE genotypes), clinical biomarkers (e.g, amyloid levels, FDG-PET) and neurocognitive scores (e.g, MMSE, ADAS-Cog).",
+                "version": "1.0.0",
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:35:00.000Z",
+                        "uri": "urn:uuid:696833aa-7be2-48b6-9d18-f95ad38d4648",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:36:00.000Z",
+                        "uri": "urn:uuid:d4404594-5ec3-4982-9eaa-ed0593373d24",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 8,
+                "name": " Neuroimaging Profiling",
+                "description": "FDG-PET neuroimaging was used to assess brain metabolism patterns in each cluster. Longitudinal analyses evaluated changes in metabolism over time, identifying regions with significant hypo metabolism.",
+                "version": "1.0.0",
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:37:00.000Z",
+                        "uri": "urn:uuid:2bb3221c-4ad0-4383-bf2b-018c67a31968",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:38:00.000Z",
+                        "uri": "urn:uuid:09d5ed94-6aaf-4473-b156-cd344c17a21f",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 9,
+                "name": "Neurocognitive Profiling",
+                "description": "The ADAS-Cog test scores were used to build neurocognitive networks for each cluster.",
+                "version": "1.0.0",
+                "prerequisite": [
+                    {
+                        "name": "neurocognitive_analysis_utils",
+                        "uri": {
+                            "filename": "",
+                            "access_time": "2024-12-12T19:38:00.000Z",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/neurocognitive_analysis_utils.py",
+                            "sha1_checksum": ""
+                        }
+                    }
+                ],
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:40:00.000Z",
+                        "uri": "urn:uuid:add3ddc9-7b5f-4200-8904-115e58fecea2",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T22:23:00.000Z",
+                        "uri": "urn:uuid:92a627f5-ea17-4bd3-9d94-f262a1875788",
+                        "sha1_checksum": ""
+                    }
+                ]
+            },
+            {
+                "step_number": 10,
+                "name": "Results Analysis",
+                "description": "These scripts are the results from the bio analysis, neurocognitive analysis, an analysis of the domains and edge scores that were obtained from the data.",
+                "version": "1.0.0",
+                "prerequisite": [
+                    {
+                        "name": "02_bio_analysis",
+                        "uri": {
+                            "filename": "",
+                            "access_time": "2024-12-12T19:42:00.000Z",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/02_bio_analysis.ipynb",
+                            "sha1_checksum": ""
+                        }
+                    },
+                    {
+                        "name": "04_neurocognitive",
+                        "uri": {
+                            "filename": "04_neurocognitive analysis",
+                            "access_time": "2024-12-12T19:42:00.000Z",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/04_neurocognitive_analysis.ipynb",
+                            "sha1_checksum": ""
+                        }
+                    },
+                    {
+                        "name": "GT_analysis_domains",
+                        "uri": {
+                            "filename": "GT_analysis_domains",
+                            "access_time": "2024-12-12T19:43:00.000Z",
+                            "uri": "https://github.com/asolbas/AD-CogNet/blob/main/GT_analysis_domains.ipynb",
+                            "sha1_checksum": ""
+                        }
+                    },
+                    {
+                        "name": "results_visualization.R",
+                        "uri": {
+                            "filename": "",
+                            "access_time": "2024-12-12T19:44:00.000Z",
+                            "uri": "https://github.com/asolbas/AD-CogNet/blob/main/results_visualization.R",
+                            "sha1_checksum": ""
+                        }
+                    },
+                    {
+                        "name": "obtain_edges_scores.py",
+                        "uri": {
+                            "filename": "obtain_edges_scores.py",
+                            "access_time": "2024-12-12T19:45:00.000Z",
+                            "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/obtain_edges_scores.py",
+                            "sha1_checksum": ""
+                        }
+                    }
+                ],
+                "input_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:46:00.000Z",
+                        "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/data/VDAs/VDAs.tsv",
+                        "sha1_checksum": ""
+                    }
+                ],
+                "output_list": [
+                    {
+                        "filename": "",
+                        "access_time": "2024-12-12T19:47:00.000Z",
+                        "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/extract_variants.sh",
+                        "sha1_checksum": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "parametric_domain": [
+        {
+            "step": "1",
+            "param": "Variant Source ",
+            "value": "2,924 unique VDAs and 728 subjects."
+        },
+        {
+            "step": "2",
+            "param": "Cohort Selection",
+            "value": "728 final_subjects and Caucasian only"
+        },
+        {
+            "step": "3",
+            "param": "PPI network",
+            "value": "66 nodes, 102 edges"
+        },
+        {
+            "step": "4",
+            "param": "Mutation-based edge scoring",
+            "value": "0 fully affected edge and 1 unaltered interaction"
+        },
+        {
+            "step": "5",
+            "param": "Clustering",
+            "value": "2-10 cluster tested range"
+        },
+        {
+            "step": "8",
+            "param": "Neuroimage process",
+            "value": "Whole cerebellum and p-value < 0.05 as significant threshold"
+        },
+        {
+            "step": "9",
+            "param": "Neurocognitive network",
+            "value": "10 subjects for subsample sizes"
+        }
+    ],
+    "io_domain": {
+        "input_subdomain": [
+            {
+                "uri": {
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/tree/main/data/VDAs",
+                    "access_time": "2024-12-12T19:57:00.000Z"
+                }
+            },
+            {
+                "uri": {
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/tree/main/data/networks",
+                    "access_time": "2024-12-12T19:58:00.000Z"
+                }
+            }
+        ],
+        "output_subdomain": [
+            {
+                "mediatype": "pdf",
+                "uri": {
+                    "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-024-60707-1/MediaObjects/41598_2024_60707_MOESM1_ESM.pdf",
+                    "access_time": "2024-12-12T19:57:00.000Z"
+                }
+            },
+            {
+                "mediatype": "xlsx",
+                "uri": {
+                    "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-024-60707-1/MediaObjects/41598_2024_60707_MOESM2_ESM.xlsx",
+                    "access_time": "2024-12-12T19:59:00.000Z"
+                }
+            },
+            {
+                "mediatype": "xlsx",
+                "uri": {
+                    "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-024-60707-1/MediaObjects/41598_2024_60707_MOESM3_ESM.xlsx",
+                    "access_time": "2024-12-12T20:01:00.000Z"
+                }
+            },
+            {
+                "mediatype": "csv",
+                "uri": {
+                    "uri": "https://www.nature.com/articles/s41598-024-60707-1/tables/1",
+                    "access_time": "2024-12-12T20:01:00.000Z"
+                }
+            },
+            {
+                "mediatype": "csv",
+                "uri": {
+                    "uri": "https://www.nature.com/articles/s41598-024-60707-1/tables/2",
+                    "access_time": "2024-12-12T20:02:00.000Z"
+                }
+            }
+        ]
+    },
+    "execution_domain": {
+        "script": [
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/00_make_datasets.ipynb",
+                    "access_time": "2024-12-12T20:13:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/01_clustering.ipynb",
+                    "access_time": "2024-12-12T08:13:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/02_bio_analysis.ipynb",
+                    "access_time": "2024-12-12T20:15:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/03_clusters_description.ipynb",
+                    "access_time": "2024-12-12T20:15:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/04_neurocognitive_analysis.ipynb",
+                    "access_time": "2024-12-12T20:15:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/tree/main/data/networks",
+                    "access_time": "2024-12-12T20:14:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/extract_variants.sh",
+                    "access_time": "2024-12-12T08:17:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/bio_networks.py",
+                    "access_time": "2024-12-12T20:16:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/obtain_edges_scores.py",
+                    "access_time": "2024-12-12T20:16:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/utils_description.py",
+                    "access_time": "2024-12-12T20:16:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "uri": {
+                    "filename": "",
+                    "uri": "https://github.com/laurahdezlorenzo/AD_genetics_stratification/blob/main/neurocognitive_analysis_utils.py",
+                    "access_time": "2024-12-12T20:17:00.000Z",
+                    "sha1_checksum": ""
+                }
+            }
+        ],
+        "script_driver": "Jupyter Notebook",
+        "software_prerequisites": [
+            {
+                "name": "Python",
+                "version": "3.8.10",
+                "uri": {
+                    "filename": "",
+                    "uri": "https://www.python.org/downloads/release/python-3810/",
+                    "access_time": "2024-12-12T20:18:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "name": "R",
+                "version": "4.1.2",
+                "uri": {
+                    "filename": "",
+                    "uri": "https://www.r-project.org/",
+                    "access_time": "2024-12-12T20:17:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "name": "NetworkX",
+                "version": "2.6.3",
+                "uri": {
+                    "filename": "",
+                    "uri": "https://networkx.org/",
+                    "access_time": "2024-12-12T20:18:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "name": "scikit-learn",
+                "version": "0.24.2",
+                "uri": {
+                    "filename": "",
+                    "uri": "https://scikit-learn.org/stable/",
+                    "access_time": "2024-12-12T20:17:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "name": "NumPy",
+                "version": "1.21.2",
+                "uri": {
+                    "filename": "",
+                    "uri": "https://numpy.org/",
+                    "access_time": "2024-12-12T20:19:00.000Z",
+                    "sha1_checksum": ""
+                }
+            },
+            {
+                "name": "Matlab",
+                "version": "2020b",
+                "uri": {
+                    "filename": "",
+                    "uri": "https://www.mathworks.com/products/matlab.html",
+                    "access_time": "2024-12-12T20:20:00.000Z",
+                    "sha1_checksum": ""
+                }
+            }
+        ],
+        "external_data_endpoints": [
+            {
+                "name": "Clin Var database",
+                "url": "https://www.ncbi.nlm.nih.gov/clinvar/"
+            },
+            {
+                "name": "UniProt",
+                "url": "https://www.uniprot.org/"
+            },
+            {
+                "name": "Seaborn",
+                "url": "https://seaborn.pydata.org/"
+            },
+            {
+                "name": "ADNI database",
+                "url": "https://adni.loni.usc.edu/"
+            },
+            {
+                "name": "DisGeNET",
+                "url": "https://disgenet.com/"
+            },
+            {
+                "name": "Github",
+                "url": "https://github.com/asolbas/AD-CogNet"
+            },
+            {
+                "name": "Statistical Parametric Mapping (SPM)",
+                "url": "https://www.fil.ion.ucl.ac.uk/spm/software/"
+            }
+        ],
+        "environment_variables": {
+            "EDITOR": "vim"
+        }
+    },
+    "extension_domain": [
+        {
+            "extension_schema": "https://github.com/allison2-cloud/Cluster-Annotation-Framework/blob/main/Cluster-Annotation-Framework%20Suggestion"
+        },
+        {
+            "extension_schema": "https://github.com/allison2-cloud/Cluster-Annotation-Framework/blob/main/Cluster-Annotation-Framework%20Suggestion"
+        }
+    ]
+}
